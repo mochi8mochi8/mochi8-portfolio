@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOCHIHA MOCHIYA — Art Direction & Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Barlow:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0e0e0c;
+    --ash: #1a1a17;
+    --smoke: #2e2e2a;
+    --mist: #6b6b62;
+    --cream: #e8e4d8;
+    --gold: #c8a96e;
+    --white: #f5f2ec;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-logo svg {
+    height: 14px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    color: var(--cream);
+    opacity: 0.6;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: calc(56.25vw + 60px);
+    max-height: calc(100vh - 74px);
+    margin-top: 74px;
+    padding: 0;
+    background: #000;
+    overflow: hidden;
+  }
+
+  .hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero-logo {
+    width: clamp(120px, 18vw, 200px);
+    opacity: 0.95;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero-scroll-hint span {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 0.975rem;
+    letter-spacing: 0.3em;
+    color: var(--cream);
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 42px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* SCROLL出し分け */
+  .mobile-scroll-hint {
+    display: none;
+    position: static;
+    transform: none;
+  }
+  .pc-scroll-hint {
+    display: flex;
+  }
+
+  .mobile-break { display: none; }
+  .pc-break { display: inline; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(200,169,110,0.2), transparent);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 9rem 3rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-label {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 1.01rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+
+  /* ── POSITION ── */
+  #position {
+    background: var(--ink);
+  }
+
+  #position > .reveal {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  #position h2 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(1.62rem, 3.6vw, 2.43rem);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  .position-text p {
+    font-size: 1.26rem;
+    line-height: 2;
+    color: var(--white);
+  }
+
+  .position-achievement {
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+  }
+
+  /* ── SKILL ICONS ── */
+  .skill-icons {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3.75rem;
+    margin-bottom: 4.5rem;
+    flex-wrap: wrap;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .skill-item svg {
+    width: 43px;
+    height: 43px;
+    fill: var(--cream);
+    opacity: 0.7;
+  }
+
+  .skill-item span {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 1.17rem;
+    letter-spacing: 0.18em;
+    color: #fff;
+    opacity: 1;
+  }
+
+  /* ── STRENGTH CARDS ── */
+  .strength-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.25rem;
+  }
+
+  .strength-card {
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    padding: 2rem 1.2rem 2rem 1.2rem;
+    text-align: center;
+  }
+
+  .strength-card h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.58rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1.15rem;
+  }
+
+  .strength-card p {
+    font-size: 1.22rem;
+    font-weight: 400;
+    line-height: 1.9;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  /* ── WORKS ── */
+  #works {
+    background: #1f1f1d;
+  }
+
+  #works > .reveal,
+  #works > .works-grid {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #works h2 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(1.62rem, 3.6vw, 2.43rem);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  .works-intro {
+    font-size: 1.26rem;
+    line-height: 2;
+    color: var(--white);
+    margin-bottom: 4.5rem;
+  }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem 2rem;
+  }
+
+  .work-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+
+  .work-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .work-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .work-card:hover .work-thumb img {
+    transform: scale(1.03);
+  }
+
+  .work-category {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--mist);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .work-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+  }
+
+  .work-result {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+    padding-top: 12rem;
+    padding-bottom: 9rem;
+  }
+
+  #contact > .reveal {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  #contact h2 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(1.62rem, 3.6vw, 2.43rem);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  .contact-text {
+    font-size: 1.26rem;
+    line-height: 2;
+    color: var(--white);
+    margin-bottom: 9rem;
+  }
+
+  .contact-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-btn {
+    display: inline-block;
+    padding: 1.4rem 6rem;
+    border: 1px solid var(--cream);
+    border-radius: 50px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--cream);
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .contact-btn:hover {
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .contact-email {
+    margin-top: 1rem;
+    font-size: 0.77rem;
+    color: rgba(245, 242, 236, 0.7);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3.5rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    text-align: center;
+  }
+
+  footer span {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 1.23rem;
+    letter-spacing: 0.2em;
+    color: var(--white);
+  }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── HAMBURGER & MOBILE MENU ── */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--cream);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .mobile-menu a {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+    color: var(--cream);
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-menu a:hover { opacity: 1; }
+
+  /* PC/モバイルタイトル出し分け */
+  .title-pc { display: inline; }
+  .title-mobile { display: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .title-pc { display: none; }
+    .title-mobile { display: inline; }
+    .mobile-break { display: inline; }
+    .pc-break { display: none; }
+
+    section { padding: 4rem 1.2rem; }
+
+    /* NAV */
+    nav { padding: 0.8rem 1.2rem; }
+    .nav-logo svg { height: 8px; }
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .mobile-menu { display: flex; }
+
+    /* HERO */
+    .hero { margin-top: 50px; height: 34vh; max-height: none; overflow: visible; }
+    .hero video { object-fit: cover; }
+    .hero-scroll-hint { bottom: -1rem; }
+    .hero-scroll-hint span { font-size: 0.5rem; }
+
+    /* SECTION LABELS */
+    .section-label { font-size: 0.55rem; margin-bottom: 0.5rem; }
+
+    /* POSITION */
+    #position h2 { font-size: 1.32rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .position-achievement { font-size: 0.85rem; margin-bottom: 1rem; }
+    .position-text p { font-size: 0.8rem; line-height: 1.8; letter-spacing: -0.03em; }
+
+    /* SKILL ICONS */
+    .skill-icons {
+      gap: 0.8rem 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .skill-item svg { width: 22px; height: 22px; }
+    .skill-item svg[style] { width: 20px !important; height: 20px !important; }
+    .skill-item span { font-size: 0.6rem; letter-spacing: 0.08em; }
+
+    /* STRENGTH CARDS */
+    .strength-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+    .strength-card { padding: 1.2rem 1rem; border: 1px solid rgba(255,255,255,0.3); }
+    .strength-card h3 { font-size: 0.99rem; letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+    .strength-card p { font-size: 0.75rem; letter-spacing: 0.04em; }
+    footer { border-top: 1px solid rgba(255,255,255,0.25); }
+
+    /* WORKS */
+    #works h2 { font-size: 1.32rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .works-intro { font-size: 0.8rem; margin-bottom: 2rem; }
+    .works-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .work-category { font-size: 0.5rem; }
+    .work-title { font-size: 0.85rem; }
+    .work-result { font-size: 0.7rem; }
+
+    /* CONTACT */
+    #contact { padding-top: 4rem; padding-bottom: 3rem; }
+    #contact h2 { font-size: 1.32rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .contact-text { font-size: 0.8rem; margin-bottom: 3rem; }
+    .contact-btn { padding: 0.9rem 2rem; font-size: 0.7rem; }
+    .contact-email { font-size: 0.6rem; }
+
+    /* FOOTER */
+    footer span { font-size: 0.65rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="mochiya_portfolio_v39.html" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="184 382 151 10">
+      <defs><style>.st0{fill:#fff;}</style></defs>
+      <g>
+        <polygon class="st0" points="241.77 382.75 241.77 386.1 237.13 386.1 237.15 382.75 235.46 382.75 235.41 391.42 237.1 391.43 237.12 387.79 241.77 387.79 241.77 391.43 243.46 391.43 243.46 382.75 241.77 382.75"/>
+        <polygon class="st0" points="248.68 382.78 245.13 391.49 246.96 391.49 249.65 384.89 252.19 391.49 254.01 391.49 250.65 382.78 248.68 382.78"/>
+        <path class="st0" d="M199.93,382.35c-2.3.17-4.16,2.01-4.34,4.31-.2,2.47,1.53,4.58,3.84,5.01,0,0,0,0,0,0v-.74c0-.48-.27-.91-.68-1.14-1.29-.72-2.02-2.32-1.38-3.99.3-.78.93-1.39,1.71-1.68,2.23-.83,4.33.8,4.33,2.92,0,1.19-.66,2.22-1.63,2.76-.41.22-.65.66-.65,1.13v.74s0,0,0,0c2.18-.41,3.84-2.32,3.84-4.62,0-2.71-2.3-4.89-5.05-4.69Z"/>
+        <polygon class="st0" points="226.18 382.75 226.18 386.1 221.55 386.1 221.57 382.75 219.87 382.75 219.82 391.42 221.52 391.43 221.54 387.79 226.18 387.79 226.18 391.43 227.88 391.43 227.88 382.75 226.18 382.75"/>
+        <path class="st0" d="M207.31,387.35c.17,2.3,2.01,4.16,4.31,4.34,2.47.2,4.58-1.53,5.01-3.84,0,0,0,0,0,0h-.74c-.48,0-.91.27-1.14.68-.72,1.29-2.32,2.02-3.99,1.38-.78-.3-1.39-.93-1.68-1.71-.83-2.23.8-4.33,2.92-4.33,1.19,0,2.22.66,2.76,1.63.22.41.66.65,1.13.65h.74s0,0,0,0c-.41-2.18-2.32-3.84-4.62-3.84-2.71,0-4.89,2.3-4.69,5.05Z"/>
+        <rect class="st0" x="230.97" y="382.75" width="1.69" height="8.68"/>
+        <polygon class="st0" points="191.06 382.75 188.36 386.45 185.68 382.75 184.11 382.75 184.06 391.42 185.75 391.43 185.78 385.78 187.6 388.29 189.12 388.29 190.95 385.78 190.95 391.43 192.64 391.43 192.64 382.75 191.06 382.75"/>
+      </g>
+      <g>
+        <polygon class="st0" points="306.36 382.75 306.36 386.1 301.72 386.1 301.74 382.75 300.05 382.75 300 391.42 301.69 391.43 301.71 387.79 306.36 387.79 306.36 391.43 308.05 391.43 308.05 382.75 306.36 382.75"/>
+        <polygon class="st0" points="328.86 382.78 325.31 391.49 327.13 391.49 329.83 384.89 332.37 391.49 334.18 391.49 330.83 382.78 328.86 382.78"/>
+        <path class="st0" d="M280.1,382.35c-2.3.17-4.16,2.01-4.34,4.31-.2,2.47,1.53,4.58,3.84,5.01,0,0,0,0,0,0v-.74c0-.48-.27-.91-.68-1.14-1.29-.72-2.02-2.32-1.38-3.99.3-.78.93-1.39,1.71-1.68,2.23-.83,4.33.8,4.33,2.92,0,1.19-.66,2.22-1.63,2.76-.41.22-.65.66-.65,1.13v.74s0,0,0,0c2.18-.41,3.84-2.32,3.84-4.62,0-2.71-2.3-4.89-5.05-4.69Z"/>
+        <path class="st0" d="M287.49,387.35c.17,2.3,2.01,4.16,4.31,4.34,2.47.2,4.58-1.53,5.01-3.84,0,0,0,0,0,0h-.74c-.48,0-.91.27-1.14.68-.72,1.29-2.32,2.02-3.99,1.38-.78-.3-1.39-.93-1.68-1.71-.83-2.23.8-4.33,2.92-4.33,1.19,0,2.22.66,2.76,1.63.22.41.66.65,1.13.65h.74s0,0,0,0c-.41-2.18-2.32-3.84-4.62-3.84-2.71,0-4.89,2.3-4.69,5.05Z"/>
+        <rect class="st0" x="311.14" y="382.75" width="1.69" height="8.68"/>
+        <polygon class="st0" points="271.24 382.75 268.54 386.45 265.86 382.75 264.28 382.75 264.23 391.42 265.92 391.43 265.96 385.78 267.78 388.29 269.3 388.29 271.12 385.78 271.12 391.43 272.81 391.43 272.81 382.75 271.24 382.75"/>
+        <polygon class="st0" points="322.66 382.75 320.28 386.59 317.64 382.75 315.58 382.75 319.47 388.4 319.47 391.43 321.16 391.43 321.16 388.38 324.65 382.75 322.66 382.75"/>
+      </g>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#position">Position</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" aria-label="メニュー" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" aria-hidden="true">
+  <ul>
+    <li><a href="#position">Position</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <video id="hero-video" autoplay muted playsinline>
+    <source src="MOCHI_TOPBanner_7.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- POSITION -->
+<section id="position">
+  <div class="reveal">
+    <div class="section-label">Position</div>
+    <h2><span class="title-pc">課題を整理し、伝わる形に設計する。</span><span class="title-mobile">課題を整理し、<br>伝わる形に設計する。</span></h2>
+    <p class="position-achievement">実務 22 年｜構成提案から制作まで一貫して対応</p>
+    
+    <div class="position-text">
+      <p>要件整理から訴求設計、構成提案、制作までを一貫して対応。<br>媒体や要件に応じて、見せ方と構成を設計し、成果につながる形へ落とし込みます。</p>
+    </div>
+
+    <!-- Skill Icons -->
+    <div class="skill-icons">
+      <div class="skill-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="121 263 32 32" style="width:37px;height:37px;">
+          <path d="M150,270.19l-4.77-4.77c-.42-.42-1.1-.42-1.52,0l-20.14,19.34c-.12.12-.22.28-.27.45l-2.44,8c-.25.82.52,1.59,1.34,1.34l8.26-2.51h0l19.53-20.33c.42-.42.42-1.1,0-1.52h.01ZM124.47,291.9l-.96-.96,1.4-4.62,2.71,1.46,1.46,2.71-4.61,1.41ZM146.97,269.43l-17.16,17.27-1.09-1.09,17.27-17.16.98.98h0Z"/>
+        </svg>
+        <span>Graphic</span>
+      </div>
+      <div class="skill-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="254 265 30 30" style="width:34px;height:34px;">
+          <path d="M268.48,266.2c-7.86,0-14.23,6.37-14.23,14.23,0,7.86,6.37,14.23,14.23,14.23,7.86,0,14.23-6.37,14.23-14.23,0-7.86-6.37-14.23-14.23-14.23ZM259.68,271.62c1.3-1.3,2.88-2.3,4.64-2.93-.84,1.02-1.55,2.33-2.1,3.84h-3.36c.26-.32.53-.62.82-.91ZM257.9,273.87h3.89c-.5,1.77-.8,3.77-.85,5.89h-4.89c.11-2.16.78-4.16,1.85-5.89ZM257.9,286.98c-1.07-1.73-1.74-3.73-1.85-5.89h4.89c.05,2.12.35,4.12.85,5.89h-3.89ZM259.68,289.23c-.29-.29-.56-.59-.82-.91h3.37c.24.65.5,1.28.8,1.85.39.75.82,1.42,1.3,1.99-1.76-.63-3.34-1.63-4.63-2.93ZM267.81,292.85c-.21-.01-.42-.03-.62-.05-.33-.15-.65-.35-.97-.61-.98-.8-1.89-2.15-2.58-3.88h4.17v4.54h0ZM267.81,286.98h-4.64c-.53-1.73-.85-3.74-.91-5.89h5.54v5.89h0ZM267.81,279.76h-5.54c.06-2.15.38-4.16.91-5.89h4.63v5.89h0ZM267.81,272.53h-4.17c.17-.43.35-.85.55-1.23.59-1.15,1.29-2.05,2.02-2.65.32-.26.65-.46.97-.61.21-.02.41-.04.62-.05v4.54h0ZM279.06,273.87c1.07,1.73,1.74,3.73,1.85,5.89h-4.89c-.05-2.12-.35-4.12-.85-5.89h3.89ZM277.28,271.62c.29.29.56.59.82.91h-3.37c-.24-.65-.5-1.28-.8-1.85-.39-.75-.82-1.42-1.3-1.99,1.76.63,3.34,1.63,4.63,2.93ZM269.15,267.99c.21.01.42.03.62.05.33.15.65.35.97.61.98.8,1.89,2.15,2.58,3.88h-4.17v-4.54ZM269.15,273.87h4.64c.53,1.73.85,3.74.91,5.89h-5.54v-5.89ZM269.15,281.09h5.54c-.06,2.15-.38,4.16-.91,5.89h-4.63v-5.89ZM270.74,292.2c-.32.26-.65.46-.97.61-.21.02-.41.04-.62.05v-4.54h4.17c-.17.43-.35.85-.55,1.23-.59,1.15-1.29,2.05-2.02,2.65ZM277.28,289.23c-1.3,1.3-2.88,2.3-4.64,2.93.84-1.02,1.55-2.33,2.1-3.84h3.36c-.26.32-.53.62-.82.91ZM279.06,286.98h-3.89c.5-1.77.8-3.77.85-5.89h4.89c-.11,2.16-.78,4.16-1.85,5.89Z"/>
+        </svg>
+        <span>Web</span>
+      </div>
+      <div class="skill-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="384 265 42 32" style="width:52px;height:52px;">
+          <path d="M395.44,276.96l-.04-.54c-.04-.2-.17-.38-.36-.46l-.81-.33c-.14-.06-.22-.2-.22-.35v-.12c0-.06,0-.11.03-.17,0,0,.51-.68.51-1.31,0-.79-.51-1.3-1.13-1.3s-1.13.51-1.13,1.3c0,.63.51,1.31.51,1.31.02.05.03.11.03.17v.12c0,.15-.09.29-.22.35l-.82.33c-.19.09-.32.26-.36.46l-.04.54h4.05Z"/>
+          <path d="M422.62,269.23c-.37-.47-.85-.86-1.53-1.24l-.08-.04c-.1-.04-1.03-.44-2.36-.84-1.88-.56-3.51-.84-4.96-.84-4.23,0-7.41,1.42-8.58,2.03l-.14.07-.14-.07c-1.17-.61-4.34-2.03-8.58-2.03-1.45,0-3.08.28-4.96.84-1.33.4-2.26.8-2.36.84l-.08.04c-.67.38-1.16.77-1.53,1.24-.44.55-.68,1.24-.67,1.94v19.3c0,.79.38,1.53,1.02,2,.42.31.93.47,1.45.47.26,0,.52-.04.76-.12h.03l.06-.04s.87-.38,2.1-.74c1.05-.31,2.62-.68,4.18-.68,2.3,0,4.32.53,5.61.98.58.2,1.15.43,1.67.67.2.09.34.17.44.22l.21.12.09.03c.12.04.24.05.36.05.08,0,.16,0,.25-.03h.12c.1.02.18.03.25.03.12,0,.24-.02.36-.05l.09-.03.08-.04-.04.04c.35-.24,3.74-1.97,7.93-1.97,1.57,0,3.19.39,4.27.71.49.15.98.31,1.45.49.18.07.31.12.41.16l.16.07.06.02c.25.08.5.12.76.12.52,0,1.02-.16,1.45-.47.64-.46,1.02-1.21,1.02-2v-19.31c0-.7-.23-1.39-.67-1.94h.04ZM404.1,291.31l-.41-.17c-1.66-.7-4.29-1.53-7.42-1.54-1.43,0-3.05.27-4.79.79-1.05.32-1.83.63-2.11.75h-.03l-.19.04c-.15,0-.29-.05-.41-.13-.18-.13-.29-.34-.29-.57v-19.31c0-.34.08-.56.3-.85.19-.25.52-.51.98-.77.23-.1,1.09-.44,2.22-.78.92-.27,2.7-.73,4.31-.73h.02c2.44,0,4.51.55,5.81,1,.73.26,1.31.52,1.66.69l.35.18v21.4h0ZM421.53,290.48c0,.22-.11.43-.29.57h0c-.12.08-.25.13-.44.13h-.02l-.14-.02h-.03c-.28-.13-1.06-.45-2.11-.76-1.75-.52-3.36-.78-4.8-.79-3.13,0-5.76.84-7.42,1.54l-.41.17v-21.4l.16-.08c1.06-.54,3.93-1.78,7.69-1.78,1.66,0,3.49.48,4.43.77.67.2,1.22.4,1.57.53.19.07.34.13.44.17l.11.05c.43.24.75.5.95.76.21.28.29.5.3.85v19.3h.01Z"/>
+          <path d="M408.41,273.53v1.28c3.52-.59,7.12-.59,10.63.03v-1.27c-3.52-.59-7.11-.6-10.63-.03h0Z"/>
+          <path d="M408.41,276.75v1.28c3.52-.59,7.12-.59,10.63.03v-1.28c-3.52-.59-7.11-.6-10.63-.03Z"/>
+          <path d="M408.41,279.96v1.28c3.52-.59,7.12-.59,10.63.03v-1.28c-3.52-.59-7.11-.6-10.63-.03Z"/>
+          <path d="M408.41,283.17v1.28c3.52-.59,7.12-.59,10.63.03v-1.28c-3.52-.59-7.11-.6-10.63-.03Z"/>
+          <path d="M401.51,273.55c-1.47-.25-2.96-.39-4.44-.43v1.26c1.48.04,2.97.19,4.44.45v-1.28h0Z"/>
+          <path d="M401.51,276.77c-1.47-.25-2.96-.39-4.44-.43v1.25c1.48.04,2.98.19,4.44.45v-1.27h0Z"/>
+          <path d="M390.88,279.96v1.28c3.52-.59,7.12-.59,10.63.03v-1.28c-3.52-.59-7.11-.6-10.63-.03Z"/>
+          <path d="M390.88,283.17v1.28c3.52-.59,7.12-.59,10.63.03v-1.28c-3.52-.59-7.11-.6-10.63-.03Z"/>
+        </svg>
+        <span>Editorial</span>
+      </div>
+      <div class="skill-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="527 265 36 30">
+          <path d="M533.41,276.77c1.54,0,2.95-.63,3.96-1.64,1.01-1.01,1.64-2.42,1.64-3.96s-.63-2.96-1.64-3.96c-1.01-1.01-2.42-1.64-3.96-1.64s-2.95.63-3.96,1.64c-1.01,1.01-1.64,2.42-1.64,3.96s.63,2.95,1.64,3.96c1.01,1.01,2.42,1.64,3.96,1.64ZM531.08,268.83c.61-.6,1.41-.97,2.33-.97s1.73.36,2.34.97c.6.61.97,1.41.97,2.34s-.36,1.73-.97,2.33-1.41.97-2.34.97-1.73-.37-2.33-.97c-.6-.61-.97-1.41-.97-2.33s.36-1.73.97-2.34Z"/>
+          <path d="M545.71,276.77c1.54,0,2.95-.63,3.96-1.64,1.01-1.01,1.64-2.42,1.64-3.96s-.63-2.96-1.64-3.96c-1.01-1.01-2.42-1.64-3.96-1.64s-2.95.63-3.96,1.64c-1.01,1.01-1.64,2.42-1.64,3.96s.63,2.95,1.64,3.96c1.01,1.01,2.42,1.64,3.96,1.64ZM543.38,268.83c.61-.6,1.41-.97,2.33-.97s1.73.36,2.34.97c.6.61.97,1.41.97,2.34s-.36,1.73-.97,2.33-1.41.97-2.34.97-1.73-.37-2.33-.97c-.6-.61-.97-1.41-.97-2.33s.36-1.73.97-2.34Z"/>
+          <path d="M548.62,277.68h-18.28c-.86,0-1.66.35-2.22.92-.57.57-.92,1.36-.92,2.22v10.18c0,.86.35,1.66.92,2.22.57.57,1.36.92,2.22.92h18.28c.86,0,1.66-.35,2.22-.92.57-.56.92-1.36.92-2.22v-10.18c0-.86-.35-1.66-.92-2.22-.56-.57-1.36-.92-2.22-.92ZM549.29,291.18c0,.1-.04.18-.1.24s-.14.09-.24.1h-18.92c-.1,0-.18-.03-.24-.1-.06-.06-.09-.14-.1-.24v-10.54c0-.09.04-.18.1-.24s.13-.09.24-.1h18.92c.09,0,.18.04.24.1s.09.14.1.24v10.54h0Z"/>
+          <path d="M560.51,278.51c-.4-.24-.86-.37-1.31-.37-.41,0-.83.1-1.2.3l-5.19,2.69v3.05l6.4-3.49v10.43l-6.4-3.49v3.05l5.19,2.69c.38.2.79.3,1.2.3.45,0,.91-.12,1.31-.36.77-.46,1.24-1.29,1.24-2.19v-10.42c0-.9-.47-1.73-1.24-2.19Z"/>
+        </svg>
+        <span style="margin-left:0.3rem;">Video</span>
+      </div>
+      <div class="skill-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="663 261 36 36" style="width:39px;height:39px;">
+          <path d="M695.25,284.58v-9.46c1.17-.36,2.03-1.44,2.03-2.73,0-1.58-1.28-2.87-2.87-2.87-.76,0-1.44.3-1.95.78l-8.18-4.73c.05-.21.08-.42.08-.64,0-1.58-1.28-2.87-2.87-2.87s-2.87,1.28-2.87,2.87c0,.22.03.44.08.64l-8.18,4.73c-.51-.48-1.19-.78-1.95-.78-1.58,0-2.87,1.28-2.87,2.87,0,1.29.86,2.37,2.03,2.73v9.46c-1.17.36-2.03,1.44-2.03,2.73,0,1.58,1.28,2.87,2.87,2.87.76,0,1.44-.3,1.95-.78l8.18,4.73c-.05.21-.08.42-.08.64,0,1.58,1.28,2.87,2.87,2.87s2.87-1.28,2.87-2.87c0-.22-.03-.44-.08-.64l8.18-4.72c.51.48,1.19.78,1.95.78,1.58,0,2.87-1.28,2.87-2.87,0-1.29-.86-2.37-2.03-2.73h0ZM680.66,292.04c-.42.13-.8.34-1.11.64l-8.18-4.73c.05-.21.08-.42.08-.64,0-1.29-.86-2.37-2.03-2.73v-9.46c.42-.13.8-.34,1.11-.64l8.18,4.73c-.05.21-.08.42-.08.64,0,1.29.86,2.37,2.03,2.73v9.46h0ZM679.55,277.76l-8.18-4.73c.05-.21.08-.42.08-.64s-.03-.44-.08-.64l8.18-4.73c.51.48,1.19.78,1.95.78s1.44-.3,1.95-.78l8.18,4.73c-.05.21-.08.42-.08.64s.03.44.08.64l-8.18,4.72c-.51-.48-1.19-.78-1.95-.78s-1.44.3-1.95.78h0ZM693.58,284.58c-1.17.36-2.03,1.44-2.03,2.73,0,.22.03.44.08.64l-8.18,4.73c-.31-.29-.69-.51-1.11-.64v-9.46c1.17-.36,2.03-1.44,2.03-2.73,0-.22-.03-.44-.08-.64l8.18-4.73c.31.29.69.51,1.11.64v9.46h0Z"/>
+        </svg>
+        <span>3DCG</span>
+      </div>
+      <div class="skill-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="800 263 34 33" style="width:39px;height:39px;">
+          <rect x="809.53" y="264.82" width="1.92" height="4.21"/>
+          <rect x="813.38" y="264.82" width="1.92" height="4.21"/>
+          <rect x="817.22" y="264.82" width="1.92" height="4.21"/>
+          <rect x="821.07" y="264.82" width="1.92" height="4.21"/>
+          <rect x="809.53" y="290.67" width="1.92" height="4.21"/>
+          <rect x="813.38" y="290.67" width="1.92" height="4.21"/>
+          <rect x="817.22" y="290.67" width="1.92" height="4.21"/>
+          <rect x="821.07" y="290.67" width="1.92" height="4.21"/>
+          <rect x="827.08" y="273.12" width="4.21" height="1.92"/>
+          <rect x="827.08" y="276.97" width="4.21" height="1.92"/>
+          <rect x="827.08" y="280.81" width="4.21" height="1.92"/>
+          <rect x="827.08" y="284.66" width="4.21" height="1.92"/>
+          <rect x="801.23" y="273.12" width="4.21" height="1.92"/>
+          <rect x="801.23" y="276.97" width="4.21" height="1.92"/>
+          <rect x="801.23" y="280.81" width="4.21" height="1.92"/>
+          <rect x="801.23" y="284.66" width="4.21" height="1.92"/>
+          <path d="M806.64,289.47h19.24v-19.24h-19.24v19.24ZM822.8,272.49c.5,0,.9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9ZM822.8,285.56c.5,0,.9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9ZM809.72,272.49c.5,0,.9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9ZM809.72,285.56c.5,0,.9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9Z"/>
+        </svg>
+        <span>AI活用</span>
+      </div>
+    </div>
+
+    <!-- Strength Cards -->
+    <div class="strength-grid">
+      <div class="strength-card">
+        <h3>成果につなげる訴求設計</h3>
+        <p>LP、販促、店頭施策などで、<br>伝える順序と見せ場を設計。</p>
+      </div>
+      <div class="strength-card">
+        <h3>継続依頼につながる再現性</h3>
+        <p>複数年採用や指名案件など、<br>継続的な依頼で強みを証明。</p>
+      </div>
+      <div class="strength-card">
+        <h3>構成から入る提案力</h3>
+        <p>与件をそのまま形にするのではなく、<br>情報整理や見せ方の段階から提案。</p>
+      </div>
+      <div class="strength-card">
+        <h3>複雑な情報を整理する編集力</h3>
+        <p>教材、冊子、販促物などで、<br>情報を整理し、理解しやすい構成へ再編。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="reveal">
+    <div class="section-label">Selected Works</div>
+    <h2>実績紹介</h2>
+    <p class="works-intro">売上貢献、継続採用、提案力、情報設計。<br><span class="mobile-break">22年の実務経験を背景に、<br>強みが伝わる6案件を掲載しています。</span><span class="pc-break">22年の実務経験を背景に、強みが伝わる6案件を掲載しています。</span></p>
+  </div>
+  
+  <div class="works-grid">
+    <a class="work-card reveal" href="work_cio_v10.html">
+      <div class="work-thumb">
+        <img src="work_cio.png" alt="CIO Makuake・POP-UP STORE施策">
+      </div>
+      <div class="work-category">Crowdfunding / Retail</div>
+      <div class="work-title">CIO Makuake・POP-UP STORE施策</div>
+      <div class="work-result">AD・KV制作 / 支援総額 4,000万円超</div>
+    </a>
+    
+    <a class="work-card reveal" href="work_ikumen_v22.html">
+      <div class="work-thumb">
+        <img src="work_ikumen.png" alt="山口県イクメン冊子">
+      </div>
+      <div class="work-category">Public / Editorial</div>
+      <div class="work-title">山口県イクメン冊子</div>
+      <div class="work-result">コンペ採用 / 書籍掲載</div>
+    </a>
+    
+    <a class="work-card reveal" href="work_oasis_v26.html">
+      <div class="work-thumb">
+        <img src="work_oasis.png" alt="OASIS統合プロモーション">
+      </div>
+      <div class="work-category">Integrated Promotion</div>
+      <div class="work-title">OASIS統合プロモーション</div>
+      <div class="work-result">統合プロモーション / 年間1億円規模受注</div>
+    </a>
+    
+    <a class="work-card reveal" href="work_toushin_v11.html">
+      <div class="work-thumb">
+        <img src="work_calendar.png" alt="東山口信用金庫カレンダー">
+      </div>
+      <div class="work-category">Continuity / Print</div>
+      <div class="work-title">東山口信用金庫カレンダー</div>
+      <div class="work-result">コンペ採用 / 複数年採用</div>
+    </a>
+    
+    <a class="work-card reveal" href="work_palsystem_v33.html">
+      <div class="work-thumb">
+        <img src="work_palsystem.png" alt="パルシステム 立体DM">
+      </div>
+      <div class="work-category">Structure / Direct Mail</div>
+      <div class="work-title">パルシステム 立体DM</div>
+      <div class="work-result">構造デザイン提案 / クライアントから高評価</div>
+    </a>
+    
+    <a class="work-card reveal" href="work_aoki_v7.html">
+      <div class="work-thumb">
+        <img src="work_aoki.png" alt="AOKI 教育マニュアル">
+      </div>
+      <div class="work-category">Manual / Information Design</div>
+      <div class="work-title">AOKI 教育マニュアル</div>
+      <div class="work-result">情報設計・図解整理 / 指名案件として制作</div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <div class="section-label">Contact</div>
+    <h2>ご相談・ご連絡はこちらから。</h2>
+    <p class="contact-text">新規案件のご相談、外部パートナーとしての参加、ブランド整理やビジュアル設計に関するご相談など、<br>お気軽にご連絡ください。内容を確認のうえ、2〜3営業日以内を目安にご返信いたします。</p>
+    
+    <div class="contact-cta">
+      <a href="mailto:studio@mochi8mochi8.com" class="contact-btn">お問合せはこちら</a>
+      <p class="contact-email">studio@mochi8mochi8.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 MOCHIHA MOCHIYA</span>
+</footer>
+
+<script>
+  // ===== 動画ループ処理 =====
+  const heroVideo = document.getElementById('hero-video');
+  const LOOP_START = 5.0;
+  const LOOP_END = 9.9;
+  let hasPlayedIntro = false;
+
+  heroVideo.addEventListener('loadedmetadata', () => {
+    console.log('Video loaded, duration:', heroVideo.duration);
+  });
+
+  heroVideo.addEventListener('timeupdate', () => {
+    if (hasPlayedIntro && heroVideo.currentTime >= LOOP_END) {
+      heroVideo.currentTime = LOOP_START;
+    }
+  });
+
+  heroVideo.addEventListener('ended', () => {
+    hasPlayedIntro = true;
+    heroVideo.currentTime = LOOP_START;
+    heroVideo.play();
+  });
+
+  heroVideo.play().catch(err => {
+    console.log('Autoplay blocked:', err);
+  });
+
+  // ===== Hamburger Menu =====
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ===== Scroll Reveal =====
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
