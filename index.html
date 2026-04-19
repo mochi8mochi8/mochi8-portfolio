@@ -614,8 +614,7 @@
 <!-- HERO -->
 <section class="hero">
   <video id="hero-video" autoplay muted playsinline>
-    <source src="MOCHI_TOPBanner_mobile.mp4" media="(max-width: 768px)" type="video/mp4">
-    <source src="MOCHI_TOPBanner_7.mp4" type="video/mp4">
+    <source id="hero-video-source" src="MOCHI_TOPBanner_7.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-scroll-hint">
@@ -809,6 +808,15 @@
 </footer>
 
 <script>
+  // ===== モバイル/PC 動画切り替え =====
+  (function() {
+    const video = document.getElementById('hero-video');
+    const source = document.getElementById('hero-video-source');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    source.src = isMobile ? 'MOCHI_TOPBanner_mobile.mp4' : 'MOCHI_TOPBanner_7.mp4';
+    video.load();
+  })();
+
   // ===== 動画ループ処理 =====
   const heroVideo = document.getElementById('hero-video');
   const LOOP_START = 5.0;
