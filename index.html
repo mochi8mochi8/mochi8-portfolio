@@ -108,25 +108,14 @@
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    justify-content: center;
   }
 
-  .hero-scroll-hint span {
-    font-family: 'Inter', 'Barlow', sans-serif;
-    font-size: 0.975rem;
-    letter-spacing: 0.3em;
-    color: var(--cream);
-    opacity: 0.6;
-    text-transform: uppercase;
-  }
-
-  .hero-scroll-hint::after {
-    content: '';
-    width: 1px;
-    height: 42px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
+  .hero-scroll-hint img {
+    width: 80px;
+    height: auto;
+    opacity: 0.75;
   }
 
   /* SCROLL出し分け */
@@ -526,10 +515,10 @@
     .mobile-menu { display: flex; }
 
     /* HERO */
-    .hero { margin-top: 50px; height: 34vh; max-height: none; overflow: visible; }
-    .hero video { object-fit: cover; }
-    .hero-scroll-hint { bottom: -1rem; }
-    .hero-scroll-hint span { font-size: 0.5rem; }
+    .hero { margin-top: 50px; height: auto; max-height: none; overflow: visible; }
+    .hero video { object-fit: cover; width: 100%; height: auto; }
+    .hero-scroll-hint { bottom: 0.2rem; }
+    .hero-scroll-hint img { width: 40px; }
 
     /* SECTION LABELS */
     .section-label { font-size: 0.55rem; margin-bottom: 0.5rem; }
@@ -580,7 +569,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="mochiya_portfolio_v39.html" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="184 382 151 10">
       <defs><style>.st0{fill:#fff;}</style></defs>
       <g>
@@ -625,11 +614,12 @@
 <!-- HERO -->
 <section class="hero">
   <video id="hero-video" autoplay muted playsinline>
+    <source src="MOCHI_TOPBanner_mobile.mp4" media="(max-width: 768px)" type="video/mp4">
     <source src="MOCHI_TOPBanner_7.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-scroll-hint">
-    <span>Scroll</span>
+    <img src="SCROLL.png" alt="SCROLL">
   </div>
 </section>
 
