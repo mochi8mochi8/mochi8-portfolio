@@ -88,7 +88,15 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block;
+  }
+
+  /* PC/モバイル動画出し分け */
+  .hero .video-mobile { display: none; }
+  .hero .video-pc { display: block; }
+
+  @media (max-width: 768px) {
+    .hero .video-mobile { display: block; }
+    .hero .video-pc { display: none; }
   }
 
   .hero-overlay {
@@ -613,8 +621,11 @@
 
 <!-- HERO -->
 <section class="hero">
-  <video id="hero-video" autoplay muted playsinline>
-    <source id="hero-video-source" src="MOCHI_TOPBanner_7.mp4" type="video/mp4">
+  <video id="hero-video" class="video-pc" autoplay muted playsinline>
+    <source src="MOCHI_TOPBanner_7.mp4" type="video/mp4">
+  </video>
+  <video id="hero-video-mobile" class="video-mobile" autoplay muted playsinline>
+    <source src="MOCHI_TOPBanner_mobile.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-scroll-hint">
@@ -808,24 +819,15 @@
 </footer>
 
 <script>
-  // ===== モバイル/PC 動画切り替え =====
-  (function() {
-    const video = document.getElementById('hero-video');
-    const source = document.getElementById('hero-video-source');
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    source.src = isMobile ? 'MOCHI_TOPBanner_mobile.mp4' : 'MOCHI_TOPBanner_7.mp4';
-    video.load();
-  })();
+  // ===== 動画ループ処理（PC/モバイル両対応）=====
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const heroVideo = isMobile
+    ? document.getElementById('hero-video-mobile')
+    : document.getElementById('hero-video');
 
-  // ===== 動画ループ処理 =====
-  const heroVideo = document.getElementById('hero-video');
   const LOOP_START = 5.0;
   const LOOP_END = 9.9;
   let hasPlayedIntro = false;
-
-  heroVideo.addEventListener('loadedmetadata', () => {
-    console.log('Video loaded, duration:', heroVideo.duration);
-  });
 
   heroVideo.addEventListener('timeupdate', () => {
     if (hasPlayedIntro && heroVideo.currentTime >= LOOP_END) {
