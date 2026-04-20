@@ -137,6 +137,7 @@
   }
 
   .mobile-break { display: none; }
+  .mobile-break-block { display: none; }
   .pc-break { display: inline; }
 
   /* ── DIVIDER ── */
@@ -541,6 +542,7 @@
     .title-pc { display: none; }
     .title-mobile { display: inline; }
     .mobile-break { display: inline; }
+    .mobile-break-block { display: block; }
     .pc-break { display: none; }
 
     section { padding: 4rem 1.2rem; }
@@ -571,6 +573,9 @@
       gap: 0.8rem 1.2rem;
       margin-top: 1.5rem;
       margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-content: start;
     }
     .skill-item svg { width: 22px; height: 22px; }
     .skill-item svg[style] { width: 20px !important; height: 20px !important; }
@@ -675,7 +680,7 @@
     
     <div class="position-text">
       <p>要望をそのまま形にするのではなく、</p>
-      <p>誰に何をどう伝えるべきかを整理し、目的に沿う構造へ組み替えます。</p>
+      <p>誰に何をどう伝えるべきかを整理し、<span class="mobile-break-block">目的に沿う構造へ組み替えます。</span><span class="pc-break">目的に沿う構造へ組み替えます。</span></p>
       <p>媒体や条件に応じて情報の優先順位を整え、</p>
       <p>伝わりやすさと読みやすさを両立した設計を行います。</p>
     </div>
