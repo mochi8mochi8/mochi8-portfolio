@@ -229,31 +229,61 @@
   .strength-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.25rem;
+    gap: 2.5rem 2.25rem;
+  }
+
+  .strength-card-wrap {
+    /* wrapは不要だがHTMLの互換性のため残す */
   }
 
   .strength-card {
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 6px;
-    padding: 2rem 1.2rem 2rem 1.2rem;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 0;
+    padding: 2.4rem 2rem 2.4rem 2rem;
     text-align: center;
+    position: relative;
+  }
+
+  .strength-label {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--mist);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
   }
 
   .strength-card h3 {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.58rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    margin-bottom: 0.7rem;
+    text-align: center;
+    text-indent: 0.15em;
+  }
+
+  .strength-keyword {
+    display: block;
+    font-size: 3rem;
+    letter-spacing: 0.3em;
     color: var(--gold);
-    margin-bottom: 1.15rem;
+    font-weight: 200;
+    margin-top: 0.4rem;
+    margin-bottom: 0.7rem;
+    text-align: center;
+    text-indent: 0.3em;
   }
 
   .strength-card p {
-    font-size: 1.22rem;
-    font-weight: 400;
-    line-height: 1.9;
-    letter-spacing: 0.08em;
+    font-size: 1.1rem;
+    font-weight: 200;
+    line-height: 2;
+    letter-spacing: 0.05em;
     color: var(--white);
+    text-align: center;
   }
 
   /* ── WORKS ── */
@@ -547,9 +577,12 @@
     .skill-item span { font-size: 0.6rem; letter-spacing: 0.08em; }
 
     /* STRENGTH CARDS */
-    .strength-grid { grid-template-columns: 1fr; gap: 0.8rem; }
-    .strength-card { padding: 1.2rem 1rem; border: 1px solid rgba(255,255,255,0.3); }
-    .strength-card h3 { font-size: 0.99rem; letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+    .strength-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+    .strength-card { padding: 1.44rem 1rem; border: 1px solid rgba(255,255,255,0.3); }
+    .strength-card h3 { font-size: 0.9rem; letter-spacing: 0.1em; }
+    .strength-keyword { font-size: 1.92rem; letter-spacing: 0.2em; }
+    .strength-label { font-size: 0.45rem; }
+    .strength-card p { font-size: 0.7rem; }
     .strength-card p { font-size: 0.75rem; letter-spacing: 0.04em; }
     footer { border-top: 1px solid rgba(255,255,255,0.25); }
 
@@ -638,10 +671,13 @@
   <div class="reveal">
     <div class="section-label">Position</div>
     <h2><span class="title-pc">課題を整理し、伝わる形に設計する。</span><span class="title-mobile">課題を整理し、<br>伝わる形に設計する。</span></h2>
-    <p class="position-achievement">実務 22 年｜構成提案から制作まで一貫して対応</p>
+    <p class="position-achievement">Art Director / Designer｜22年の実務経験</p>
     
     <div class="position-text">
-      <p>要件整理から訴求設計、構成提案、制作までを一貫して対応。<br>媒体や要件に応じて、見せ方と構成を設計し、成果につながる形へ落とし込みます。</p>
+      <p>要望をそのまま形にするのではなく、</p>
+      <p>誰に何をどう伝えるべきかを整理し、目的に沿う構造へ組み替えます。</p>
+      <p>媒体や条件に応じて情報の優先順位を整え、</p>
+      <p>伝わりやすさと読みやすさを両立した設計を行います。</p>
     </div>
 
     <!-- Skill Icons -->
@@ -715,20 +751,24 @@
     <!-- Strength Cards -->
     <div class="strength-grid">
       <div class="strength-card">
-        <h3>成果につなげる訴求設計</h3>
-        <p>LP、販促、店頭施策などで、<br>伝える順序と見せ場を設計。</p>
+        <div class="strength-label">STRONGPOINT 01</div>
+        <h3>構成から入る<br><span class="strength-keyword">提案力</span></h3>
+        <p>与件を受け取るだけでなく、<br>情報整理や見せ方の段階から考え、<br>目的に沿う形へ再構成します。</p>
       </div>
       <div class="strength-card">
-        <h3>継続依頼につながる再現性</h3>
-        <p>複数年採用や指名案件など、<br>継続的な依頼で強みを証明。</p>
+        <div class="strength-label">STRONGPOINT 02</div>
+        <h3>複雑な情報を整理する<br><span class="strength-keyword">編集力</span></h3>
+        <p>教材・冊子・販促物など、<br>多情報の案件でも、読みやすく<br>理解しやすい構成へ落とし込みます。</p>
       </div>
       <div class="strength-card">
-        <h3>構成から入る提案力</h3>
-        <p>与件をそのまま形にするのではなく、<br>情報整理や見せ方の段階から提案。</p>
+        <div class="strength-label">STRONGPOINT 03</div>
+        <h3>業界特性を踏まえた<br><span class="strength-keyword">最適化力</span></h3>
+        <p>ガジェット、行政、販促、教育など、<br>分野ごとの勘所やトーンを踏まえ、<br>伝わり方に合わせて設計します。</p>
       </div>
       <div class="strength-card">
-        <h3>複雑な情報を整理する編集力</h3>
-        <p>教材、冊子、販促物などで、<br>情報を整理し、理解しやすい構成へ再編。</p>
+        <div class="strength-label">STRONGPOINT 04</div>
+        <h3>継続依頼につながる<br><span class="strength-keyword">再現性</span></h3>
+        <p>複数年採用や指名案件など、<br>長く使われることを前提に整えた設計で、<br>継続的な依頼につなげてきました。</p>
       </div>
     </div>
   </div>
