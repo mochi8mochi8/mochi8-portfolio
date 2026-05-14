@@ -168,8 +168,25 @@
   }
 
   #position > .reveal {
-    max-width: 1000px;
+    max-width: 1050px;
     margin: 0 auto;
+  }
+
+  /* 左右2カラムレイアウト */
+  .position-layout {
+    display: grid;
+    grid-template-columns: 490px 490px;
+    justify-content: space-between;
+    gap: 0;
+    align-items: start;
+  }
+
+  .position-left {
+    /* 左：見出し・サブ・リード文・アイコン */
+  }
+
+  .position-right {
+    /* 右：実績アイキャッチ */
   }
 
   #position h2 {
@@ -186,23 +203,57 @@
     font-size: 1.26rem;
     line-height: 2;
     color: var(--white);
+    padding-right: 10px;
   }
 
   .position-achievement {
-    font-size: 1.65rem;
+    font-size: 1.32rem;
     font-weight: 500;
     color: var(--gold);
     letter-spacing: 0.1em;
     margin-bottom: 2rem;
   }
 
+  /* ── FREELANCE EYECATCH ── */
+  .freelance-eyecatch {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+
+  .freelance-eyecatch:hover {
+    transform: translateY(-4px);
+  }
+
+  .eyecatch-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .eyecatch-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .freelance-eyecatch:hover .eyecatch-thumb img {
+    transform: scale(1.03);
+  }
+
   /* ── SKILL ICONS ── */
   .skill-icons {
-    display: flex;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 2.5rem;
     margin-top: 3.75rem;
-    margin-bottom: 4.5rem;
-    flex-wrap: wrap;
+    margin-bottom: 0;
+    padding-right: 20px;
+    justify-items: start;
   }
 
   .skill-item {
@@ -216,75 +267,42 @@
     height: 43px;
     fill: var(--cream);
     opacity: 0.7;
+    transform: scale(0.9);
+    transform-origin: left center;
   }
 
   .skill-item span {
     font-family: 'Inter', 'Barlow', sans-serif;
-    font-size: 1.17rem;
+    font-size: 1.053rem;
     letter-spacing: 0.18em;
     color: #fff;
     opacity: 1;
   }
 
-  /* ── STRENGTH CARDS ── */
-  .strength-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 2.25rem;
-  }
-
-  .strength-card-wrap {
-    /* wrapは不要だがHTMLの互換性のため残す */
-  }
-
-  .strength-card {
-    border: 1.5px solid rgba(255,255,255,0.25);
-    border-radius: 0;
-    padding: 2.4rem 2rem 2.4rem 2rem;
-    text-align: center;
-    position: relative;
-  }
-
-  .strength-label {
+  /* ── EYECATCH CAPTION (POSITION右下のオーバーレイ) ── */
+  .eyecatch-category {
     font-family: 'Inter', 'Barlow', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.84rem;
     letter-spacing: 0.2em;
     color: var(--mist);
     text-transform: uppercase;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
   }
 
-  .strength-card h3 {
+  .eyecatch-title {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.35rem;
+    font-size: 1.56rem;
     font-weight: 400;
-    letter-spacing: 0.15em;
     color: var(--white);
-    margin-bottom: 0.7rem;
-    text-align: center;
-    text-indent: 0.15em;
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
   }
 
-  .strength-keyword {
-    display: block;
-    font-size: 3rem;
-    letter-spacing: 0.3em;
+  .eyecatch-result {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.26rem;
     color: var(--gold);
-    font-weight: 200;
-    margin-top: 0.4rem;
-    margin-bottom: 0.7rem;
-    text-align: center;
-    text-indent: 0.3em;
-  }
-
-  .strength-card p {
-    font-size: 1.1rem;
-    font-weight: 200;
-    line-height: 2;
     letter-spacing: 0.05em;
-    color: var(--white);
-    text-align: center;
   }
 
   /* ── WORKS ── */
@@ -294,7 +312,7 @@
 
   #works > .reveal,
   #works > .works-grid {
-    max-width: 1000px;
+    max-width: 1050px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -317,8 +335,9 @@
 
   .works-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6rem 2rem;
+    grid-template-columns: 490px 490px;
+    justify-content: space-between;
+    gap: 6rem 0;
   }
 
   .work-card {
@@ -353,7 +372,7 @@
 
   .work-category {
     font-family: 'Inter', 'Barlow', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.84rem;
     letter-spacing: 0.2em;
     color: var(--mist);
     text-transform: uppercase;
@@ -362,7 +381,7 @@
 
   .work-title {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.56rem;
     font-weight: 400;
     color: var(--white);
     line-height: 1.5;
@@ -371,7 +390,7 @@
 
   .work-result {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.26rem;
     color: var(--gold);
     letter-spacing: 0.05em;
   }
@@ -384,7 +403,7 @@
   }
 
   #contact > .reveal {
-    max-width: 1000px;
+    max-width: 1050px;
     margin: 0 auto;
   }
 
@@ -402,7 +421,93 @@
     font-size: 1.26rem;
     line-height: 2;
     color: var(--white);
-    margin-bottom: 9rem;
+    margin-bottom: 4rem;
+  }
+
+  /* ── CONTACT FORM ── */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-form label {
+    font-family: 'Inter', 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(245, 242, 236, 0.3);
+    padding: 0.75rem 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1rem;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus,
+  .contact-form select:focus {
+    border-bottom-color: var(--gold);
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form select option {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--mist);
+    font-size: 0.9rem;
+  }
+
+  .contact-form-btn {
+    display: inline-block;
+    padding: 1.2rem 5rem;
+    border: 1px solid var(--cream);
+    border-radius: 50px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--cream);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    align-self: center;
+    margin-top: 1rem;
+  }
+
+  .contact-form-btn:hover {
+    background: var(--cream);
+    color: var(--ink);
   }
 
   .contact-cta {
@@ -568,6 +673,12 @@
     .position-achievement { font-size: 0.85rem; margin-bottom: 1rem; }
     .position-text p { font-size: 0.8rem; line-height: 1.8; letter-spacing: -0.03em; }
 
+    /* POSITION 2カラム → 縦積み（テキスト → アイキャッチ） */
+    .position-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
     /* SKILL ICONS */
     .skill-icons {
       gap: 0.8rem 1.2rem;
@@ -581,14 +692,11 @@
     .skill-item svg[style] { width: 20px !important; height: 20px !important; }
     .skill-item span { font-size: 0.6rem; letter-spacing: 0.08em; }
 
-    /* STRENGTH CARDS */
-    .strength-grid { grid-template-columns: 1fr; gap: 1.6rem; }
-    .strength-card { padding: 1.44rem 1rem; border: 1px solid rgba(255,255,255,0.3); }
-    .strength-card h3 { font-size: 0.9rem; letter-spacing: 0.1em; }
-    .strength-keyword { font-size: 1.92rem; letter-spacing: 0.2em; }
-    .strength-label { font-size: 0.45rem; }
-    .strength-card p { font-size: 0.7rem; }
-    .strength-card p { font-size: 0.75rem; letter-spacing: 0.04em; }
+    /* EYECATCH CAPTION */
+    .eyecatch-category { font-size: 0.5rem; }
+    .eyecatch-title { font-size: 0.85rem; }
+    .eyecatch-result { font-size: 0.7rem; }
+
     footer { border-top: 1px solid rgba(255,255,255,0.25); }
 
     /* WORKS */
@@ -602,9 +710,15 @@
     /* CONTACT */
     #contact { padding-top: 4rem; padding-bottom: 3rem; }
     #contact h2 { font-size: 1.32rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .contact-text { font-size: 0.8rem; margin-bottom: 3rem; }
+    .contact-text { font-size: 0.8rem; margin-bottom: 2rem; }
     .contact-btn { padding: 0.9rem 2rem; font-size: 0.7rem; }
     .contact-email { font-size: 0.6rem; }
+    .contact-form .form-row { grid-template-columns: 1fr; }
+    .contact-form label { font-size: 0.6rem; }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select { font-size: 0.8rem; }
+    .contact-form-btn { padding: 0.9rem 3rem; font-size: 0.8rem; }
 
     /* FOOTER */
     footer span { font-size: 0.65rem; }
@@ -675,18 +789,19 @@
 <section id="position">
   <div class="reveal">
     <div class="section-label">Position</div>
-    <h2><span class="title-pc">課題を整理し、伝わる形に設計する。</span><span class="title-mobile">課題を整理し、<br>伝わる形に設計する。</span></h2>
-    <p class="position-achievement">Art Director / Designer｜27年の実務経験</p>
-    
-    <div class="position-text">
-      <p>要望をそのまま形にするのではなく、</p>
-      <p>誰に何をどう伝えるべきかを整理し、<span class="mobile-break-block">目的に沿う構造へ組み替えます。</span><span class="pc-break">目的に沿う構造へ組み替えます。</span></p>
-      <p>媒体や条件に応じて情報の優先順位を整え、</p>
-      <p>伝わりやすさと読みやすさを両立した設計を行います。</p>
-    </div>
 
-    <!-- Skill Icons -->
-    <div class="skill-icons">
+    <div class="position-layout">
+      <!-- 左カラム：見出し・サブ・リード文・アイコン -->
+      <div class="position-left">
+        <h2><span class="title-pc">課題を整理し、<br>伝わる形に設計する。</span><span class="title-mobile">課題を整理し、<br>伝わる形に設計する。</span></h2>
+        <p class="position-achievement">Art Director / Designer｜27年の実務経験</p>
+
+        <div class="position-text">
+          <p>要望をそのまま形にするのではなく、構成や見せ方の段階から整理して組み立てます。販促物から冊子まで、求められるトーンが異なる案件にも対応しています。現在は屋号「モチハモチヤ」として、これまで培ってきた経験を生かした制作を行っています。</p>
+        </div>
+
+        <!-- Skill Icons -->
+        <div class="skill-icons">
       <div class="skill-item">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="121 263 32 32" style="width:37px;height:37px;">
           <path d="M150,270.19l-4.77-4.77c-.42-.42-1.1-.42-1.52,0l-20.14,19.34c-.12.12-.22.28-.27.45l-2.44,8c-.25.82.52,1.59,1.34,1.34l8.26-2.51h0l19.53-20.33c.42-.42.42-1.1,0-1.52h.01ZM124.47,291.9l-.96-.96,1.4-4.62,2.71,1.46,1.46,2.71-4.61,1.41ZM146.97,269.43l-17.16,17.27-1.09-1.09,17.27-17.16.98.98h0Z"/>
@@ -752,30 +867,24 @@
         <span>AI活用</span>
       </div>
     </div>
+      </div>
+      <!-- /position-left -->
 
-    <!-- Strength Cards -->
-    <div class="strength-grid">
-      <div class="strength-card">
-        <div class="strength-label">STRONGPOINT 01</div>
-        <h3>構成から入る<br><span class="strength-keyword">提案力</span></h3>
-        <p>与件を受け取るだけでなく、<br>情報整理や見せ方の段階から考え、<br>目的に沿う形へ再構成します。</p>
+      <!-- 右カラム：フリーランス実績アイキャッチ -->
+      <div class="position-right">
+        <a class="freelance-eyecatch reveal" href="position_works.html">
+          <div class="eyecatch-thumb">
+            <img src="freelance_works.png" alt="モチハモチヤ 制作実績">
+          </div>
+          <div class="eyecatch-category">Branding / Graphic</div>
+          <div class="eyecatch-title">モチハモチヤ 制作実績</div>
+          <div class="eyecatch-result">ロゴ・販促・行政案件</div>
+        </a>
       </div>
-      <div class="strength-card">
-        <div class="strength-label">STRONGPOINT 02</div>
-        <h3>複雑な情報を整理する<br><span class="strength-keyword">編集力</span></h3>
-        <p>教材・冊子・販促物など、<br>多情報の案件でも、読みやすく<br>理解しやすい構成へ落とし込みます。</p>
-      </div>
-      <div class="strength-card">
-        <div class="strength-label">STRONGPOINT 03</div>
-        <h3>業界特性を踏まえた<br><span class="strength-keyword">最適化力</span></h3>
-        <p>ガジェット、行政、販促、教育など、<br>分野ごとの勘所やトーンを踏まえ、<br>伝わり方に合わせて設計します。</p>
-      </div>
-      <div class="strength-card">
-        <div class="strength-label">STRONGPOINT 04</div>
-        <h3>継続依頼につながる<br><span class="strength-keyword">再現性</span></h3>
-        <p>複数年採用や指名案件など、<br>長く使われることを前提に整えた設計で、<br>継続的な依頼につなげてきました。</p>
-      </div>
+      <!-- /position-right -->
+
     </div>
+    <!-- /position-layout -->
   </div>
 </section>
 
@@ -821,7 +930,7 @@
       </div>
       <div class="work-category">Continuity / Print</div>
       <div class="work-title">東山口信用金庫カレンダー</div>
-      <div class="work-result">コンペ採用 / 複数年採用</div>
+      <div class="work-result">複数案提案 / 継続制作参加</div>
     </a>
     
     <a class="work-card reveal" href="work_palsystem_v33.html">
@@ -850,11 +959,39 @@
     <div class="section-label">Contact</div>
     <h2>ご相談・ご連絡はこちらから。</h2>
     <p class="contact-text">新規案件のご相談、外部パートナーとしての参加、ブランド整理やビジュアル設計に関するご相談など、<br>お気軽にご連絡ください。内容を確認のうえ、2〜3営業日以内を目安にご返信いたします。</p>
-    
-    <div class="contact-cta">
-      <a href="mailto:studio@mochi8mochi8.com" class="contact-btn">お問合せはこちら</a>
-      <p class="contact-email">studio@mochi8mochi8.com</p>
-    </div>
+
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/mwvyaeev"
+      method="POST"
+    >
+      <!-- お名前・会社名 -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">お名前 *</label>
+          <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+        </div>
+        <div class="form-group">
+          <label for="company">会社名・屋号</label>
+          <input type="text" id="company" name="company" placeholder="株式会社〇〇">
+        </div>
+      </div>
+
+      <!-- メールアドレス -->
+      <div class="form-group">
+        <label for="email">メールアドレス *</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <!-- メッセージ -->
+      <div class="form-group">
+        <label for="message">メッセージ *</label>
+        <textarea id="message" name="message" placeholder="ご依頼の概要・ご予算・納期などをお気軽にご記入ください。" required></textarea>
+      </div>
+
+      <button type="submit" class="contact-form-btn">送信する</button>
+    </form>
+
   </div>
 </section>
 
