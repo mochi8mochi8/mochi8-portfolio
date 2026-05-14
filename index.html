@@ -681,16 +681,16 @@
 
     /* SKILL ICONS */
     .skill-icons {
-      gap: 0.8rem 1.2rem;
+      gap: 0.8rem 0.6rem;
       margin-top: 1.5rem;
       margin-bottom: 2rem;
       display: grid;
-      grid-template-columns: repeat(4, auto);
+      grid-template-columns: repeat(3, auto);
       justify-content: start;
     }
     .skill-item svg { width: 22px; height: 22px; }
     .skill-item svg[style] { width: 20px !important; height: 20px !important; }
-    .skill-item span { font-size: 0.6rem; letter-spacing: 0.08em; }
+    .skill-item span { font-size: 0.66rem; letter-spacing: 0.08em; }
 
     /* EYECATCH CAPTION */
     .eyecatch-category { font-size: 0.5rem; }
@@ -793,7 +793,7 @@
     <div class="position-layout">
       <!-- 左カラム：見出し・サブ・リード文・アイコン -->
       <div class="position-left">
-        <h2><span class="title-pc">課題を整理し、<br>伝わる形に設計する。</span><span class="title-mobile">課題を整理し、<br>伝わる形に設計する。</span></h2>
+        <h2><span class="title-pc">課題を整理し、<br>伝わる形に設計する。</span><span class="title-mobile" aria-hidden="true">課題を整理し、<br>伝わる形に設計する。</span></h2>
         <p class="position-achievement">Art Director / Designer｜27年の実務経験</p>
 
         <div class="position-text">
@@ -893,7 +893,7 @@
   <div class="reveal">
     <div class="section-label">Selected Works</div>
     <h2>実績紹介</h2>
-    <p class="works-intro">売上貢献、継続採用、提案力、情報設計。<br><span class="mobile-break">27年の実務経験を背景に、<br>強みが伝わる6案件を掲載しています。</span><span class="pc-break">27年の実務経験を背景に、強みが伝わる6案件を掲載しています。</span></p>
+    <p class="works-intro">売上貢献、継続採用、提案力、情報設計。<br><span class="mobile-break">27年の実務経験を背景に、<br>強みが伝わる実績を掲載しています。</span><span class="pc-break" aria-hidden="true">27年の実務経験を背景に、強みが伝わる実績を掲載しています。</span></p>
   </div>
   
   <div class="works-grid">
@@ -1009,18 +1009,19 @@
 
   const LOOP_START = 5.0;
   const LOOP_END = 9.9;
-  let hasPlayedIntro = false;
 
+  // timeupdateで常時監視：LOOP_END到達したらLOOP_STARTに戻す
   heroVideo.addEventListener('timeupdate', () => {
-    if (hasPlayedIntro && heroVideo.currentTime >= LOOP_END) {
+    if (heroVideo.currentTime >= LOOP_END) {
       heroVideo.currentTime = LOOP_START;
+      heroVideo.play().catch(() => {});
     }
   });
 
+  // ended時のフォールバック（念のため）
   heroVideo.addEventListener('ended', () => {
-    hasPlayedIntro = true;
     heroVideo.currentTime = LOOP_START;
-    heroVideo.play();
+    heroVideo.play().catch(() => {});
   });
 
   heroVideo.play().catch(err => {
