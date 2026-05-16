@@ -1106,6 +1106,8 @@
     setTimeout(() => {
       pwScreen.style.display = 'none';
       document.body.style.overflow = '';
+      // ページトップに戻す
+      window.scrollTo({ top: 0, behavior: 'instant' });
       // 認証後に動画を最初から再生
       const isMob = window.matchMedia('(max-width: 768px)').matches;
       const vid = isMob
