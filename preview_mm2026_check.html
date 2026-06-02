@@ -274,6 +274,7 @@
     font-weight: 400;
     color: var(--white);
     line-height: 1.5;
+    letter-spacing: 0.08em;
     margin-bottom: 0.3rem;
   }
 
@@ -281,7 +282,7 @@
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 1.26rem;
     color: var(--gold);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
   }
 
   /* ── WORKS ── */
@@ -364,6 +365,7 @@
     font-weight: 400;
     color: var(--white);
     line-height: 1.5;
+    letter-spacing: 0.08em;
     margin-bottom: 0.3rem;
   }
 
@@ -371,34 +373,20 @@
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 1.26rem;
     color: var(--gold);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
   }
 
-  /* ── WORKS DIVIDER ── */
-  .works-divider {
-    max-width: 1050px;
-    margin: 6rem auto 5rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .works-divider::before,
-  .works-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(200,169,110,0.3), transparent);
-  }
-
-  .works-divider span {
-    font-family: 'Inter', 'Barlow', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
+  /* ── WORK TAG ── */
+  .work-tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    border-radius: 50px;
+    padding: 0.15em 1em;
+    margin-right: 0.6em;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
     color: var(--gold);
-    text-transform: uppercase;
-    opacity: 0.7;
-    white-space: nowrap;
+    vertical-align: middle;
   }
 
   /* ── CONTACT ── */
@@ -674,6 +662,7 @@
     .work-category { font-size: 0.5rem; }
     .work-title { font-size: 0.85rem; }
     .work-result { font-size: 0.7rem; }
+    .work-tag { font-size: 0.6rem; padding: 0.1em 0.7em; margin-right: 0.4em; }
 
     #contact { padding-top: 4rem; padding-bottom: 3rem; }
     #contact h2 { font-size: 1.32rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
@@ -862,16 +851,16 @@
       </div>
       <div class="work-category">Crowdfunding / Retail</div>
       <div class="work-title">CIO Makuake・POP-UP STORE施策</div>
-      <div class="work-result">AD・KV制作 / 支援総額 4,000万円超</div>
+      <div class="work-result">AD・KV制作 / 支援総額4,000万円超</div>
     </a>
 
     <a class="work-card reveal" href="work_ikumen_v22.html">
       <div class="work-thumb">
         <img src="work_ikumen.png" alt="山口県イクメン冊子">
       </div>
-      <div class="work-category">Public / Editorial</div>
+      <div class="work-category">Editorial / Booklet</div>
       <div class="work-title">山口県イクメン冊子</div>
-      <div class="work-result">コンペ採用 / 書籍掲載</div>
+      <div class="work-result">行政コンペ採用 / デザイン書籍掲載</div>
     </a>
 
     <a class="work-card reveal" href="work_dm.html">
@@ -880,16 +869,16 @@
       </div>
       <div class="work-category">Food / Direct Mail</div>
       <div class="work-title">宇部蒲鉾 季節DM</div>
-      <div class="work-result">撮影立ち会い / 複数シーズン継続制作</div>
+      <div class="work-result">撮影ディレクション / 複数シーズン制作</div>
     </a>
 
     <a class="work-card reveal" href="work_toushin_v11.html">
       <div class="work-thumb">
         <img src="work_calendar.png" alt="東山口信用金庫カレンダー">
       </div>
-      <div class="work-category">Continuity / Print</div>
+      <div class="work-category">3DCG / Calendar</div>
       <div class="work-title">東山口信用金庫カレンダー</div>
-      <div class="work-result">複数案提案 / 継続制作参加</div>
+      <div class="work-result">3Dビジュアル制作 / 複数案提案</div>
     </a>
 
     <a class="work-card reveal" href="work_drivefair.html">
@@ -898,40 +887,34 @@
       </div>
       <div class="work-category">Campaign / Landing Page</div>
       <div class="work-title">Drive Fair LP</div>
-      <div class="work-result">サファリパークとのコラボ施策 / 集客に貢献</div>
+      <div class="work-result">構成・UI設計 / DM展開</div>
     </a>
 
     <a class="work-card reveal" href="work_oasis_v26.html">
       <div class="work-thumb">
         <img src="work_oasis.png" alt="OASIS統合プロモーション">
       </div>
-      <div class="work-category">Integrated Promotion</div>
+      <div class="work-category">Branding / Promotion</div>
       <div class="work-title">OASIS統合プロモーション</div>
-      <div class="work-result">印刷会社時代・社内MVP社長賞 / 年間1億円規模受注</div>
+      <div class="work-result">専属AD / 年間1億円規模受注</div>
     </a>
-  </div>
 
-  <div class="works-divider reveal">
-    <span>Proposal &amp; Direction</span>
-  </div>
-
-  <div class="works-grid">
     <a class="work-card reveal" href="work_palsystem_v33.html">
       <div class="work-thumb">
         <img src="work_palsystem.png" alt="パルシステム 立体DM">
       </div>
-      <div class="work-category">Proposal / Direct Mail</div>
+      <div class="work-category">Structure / Direct Mail</div>
       <div class="work-title">パルシステム 立体DM</div>
-      <div class="work-result">構造デザイン提案 / クライアントから高評価</div>
+      <div class="work-result">構造DM提案 / 体験設計</div>
     </a>
 
     <a class="work-card reveal" href="work_tomari.html">
       <div class="work-thumb">
         <img src="work_tomari.png" alt="tomari. プランタースタンド構想">
       </div>
-      <div class="work-category">Proposal / Brand Concept</div>
+      <div class="work-category">Brand Concept / Product Design</div>
       <div class="work-title">tomari. プランタースタンド構想</div>
-      <div class="work-result">自主ブランド・商品開発構想</div>
+      <div class="work-result"><span class="work-tag">自主ブランド</span>商品開発構想</div>
     </a>
   </div>
 </section>
