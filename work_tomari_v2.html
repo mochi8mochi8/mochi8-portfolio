@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIO — Works | MOCHIHA MOCHIYA</title>
+<title>tomari. プランタースタンド構想 — Works | MOCHIHA MOCHIYA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Barlow:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -28,15 +28,13 @@
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    padding-top: 74px; /* clear fixed nav */
+    padding-top: 74px;
   }
 
-  /* ── NAV (common with top) ── */
+  /* ── NAV ── */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 2rem 2.5rem;
     display: flex;
@@ -122,7 +120,7 @@
   /* ── CASE SECTIONS ── */
   .case-section {
     padding: 0 3rem 0 5rem;
-    /* Info zone right edge: 5rem + 432 = 512px, breathing 48px → dark zone ends at 560px */
+    min-height: 100vh;
     background: linear-gradient(
       to right,
       #1f1f1d 0,
@@ -137,7 +135,6 @@
     display: grid;
     grid-template-columns: 432px 1fr;
     gap: 4rem;
-    /* No max-width — gallery scales fluidly with viewport */
   }
 
   .case-info {
@@ -153,7 +150,7 @@
     flex-direction: column;
     gap: 9rem;
     padding: 6rem 0 6rem;
-    /* No max-width — fills 1fr, scales with viewport */
+    min-height: calc(100vh - 74px);
   }
 
   .case-number {
@@ -182,10 +179,6 @@
     color: var(--cream);
     opacity: 0.9;
     margin-bottom: 0.2rem;
-  }
-
-  .case-body p.p-tight {
-    letter-spacing: -0.05em;
   }
 
   .case-meta {
@@ -223,94 +216,38 @@
     filter: drop-shadow(0 10px 28px rgba(0,0,0,0.35));
   }
 
-  .case-gallery .gallery-85 {
-    width: 65%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-80 {
-    width: 40%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-27 {
-    width: 27%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-48 {
-    width: 48%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-45 {
-    width: 45%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-43 {
-    width: 43%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-50 {
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-51 {
-    width: 51%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-55 {
-    width: 55%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-60 {
-    width: 60%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-65 {
-    width: 65%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-68 {
-    width: 68%;
-    margin: 0 auto;
-  }
-
-  .case-gallery .gallery-76 {
-    width: 76%;
-    margin: 0 auto;
-  }
-
   .case-gallery .gallery-centered {
-    width: 68%;
+    width: 100%;
     margin: 0 auto;
   }
 
   .gallery-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
 
-  .gallery-row-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4.5rem;
+  /* PC版画像サイズ */
+  @media (min-width: 901px) {
+    .case-gallery .gallery-centered {
+      width: 54.45%;
+    }
+    .gallery-row {
+      width: 66%;
+      gap: 2rem;
+    }
   }
 
-  .gallery-row.gallery-85 {
-    width: 85%;
-    margin: 0 auto;
+  /* PC/モバイルタイトル出し分け */
+  .title-pc { display: block; }
+  .title-mobile { display: none; }
+
+  @media (max-width: 768px) {
+    .title-pc { display: none; }
+    .title-mobile { display: block; }
   }
 
-  /* ── BACK LINK ── */
+  /* ── CASE FOOTER ── */
   .case-footer {
     padding: 4rem 3rem 6rem 560px;
     text-align: center;
@@ -370,20 +307,7 @@
     .case-gallery {
       padding: 0 0 2rem;
     }
-    .case-gallery .gallery-85 { width: 90%; }
-    .case-gallery .gallery-80 { width: 90%; }
-    .case-gallery .gallery-76 { width: 90%; }
-    .case-gallery .gallery-68 { width: 90%; }
-    .case-gallery .gallery-60 { width: 90%; }
-    .case-gallery .gallery-65 { width: 90%; }
-    .case-gallery .gallery-55 { width: 90%; }
-    .case-gallery .gallery-51 { width: 90%; }
-    .case-gallery .gallery-50 { width: 90%; }
-    .case-gallery .gallery-48 { width: 90%; }
-    .case-gallery .gallery-45 { width: 90%; }
-    .case-gallery .gallery-43 { width: 90%; }
-    .case-gallery .gallery-27 { width: 70%; }
-    .case-gallery .gallery-centered { width: 90%; }
+    .case-gallery .gallery-centered { width: 84%; margin: 0 auto; }
     .case-footer {
       padding: 4rem 1.5rem 6rem;
       background: #2e2e2a;
@@ -391,7 +315,6 @@
   }
 
   @media (max-width: 768px) {
-    /* NAV */
     nav { padding: 0.8rem 1.2rem; }
     .nav-logo svg { height: 8px; }
     .nav-links { display: none; }
@@ -400,7 +323,6 @@
 
     body { padding-top: 40px; }
 
-    /* CASE */
     .case-section { padding: 2rem 1.2rem 3.5rem; background: #1f1f1d; }
     .case-number { font-size: 0.72rem; padding-bottom: 0.8rem; margin-bottom: 1rem; }
     .case-title { font-size: 0.92rem; letter-spacing: 0.04em; margin-bottom: 1.2rem; }
@@ -411,16 +333,29 @@
       font-size: 0.78rem;
       row-gap: 0.4rem;
     }
-    .case-gallery { gap: 3rem; }
+    .case-gallery { gap: 3rem; min-height: auto; }
     .gallery-row { grid-template-columns: 1fr; gap: 1.5rem; }
-    .gallery-row-2 { grid-template-columns: 1fr; gap: 1.5rem; }
-    .fukubukuro-title br:nth-child(2) { display: none; }
 
-    /* FOOTER */
     .case-footer { padding: 2.5rem 1.2rem 4rem; background: #1f1f1d; }
     .back-link { font-size: 0.6rem; letter-spacing: 0.2em; }
     footer { padding: 2rem 1.2rem; border-top: none; }
     footer span { font-size: 0.65rem; }
+  }
+
+  @media (max-width: 390px) {
+    .case-title {
+      font-size: 0.86rem;
+      letter-spacing: 0.03em;
+      line-height: 1.7;
+    }
+    .case-gallery .gallery-centered {
+      width: 95% !important;
+      margin: 0 auto;
+    }
+    .gallery-row img {
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 </style>
 </head>
@@ -471,116 +406,34 @@
 </div>
 
 <!-- ============================== -->
-<!-- 01 CIO MAKUAKE                 -->
+<!-- tomari. プランタースタンド構想   -->
 <!-- ============================== -->
-<section class="case-section" id="cio-makuake">
+<section class="case-section" id="tomari">
   <div class="case-grid">
     <aside class="case-info">
-      <div class="case-number">01 CIO Makuake</div>
-      <h1 class="case-title">Makuake KV制作 /<br>支援総額 約4,000万円を記録</h1>
+      <div class="case-number">tomari. プランタースタンド構想</div>
+      <h1 class="case-title" style="letter-spacing: 0.03em;">
+        価格競争ではなく、植物の<br>「置き方」と「見え方」を価値化する<br>自主ブランド・商品開発
+      </h1>
       <div class="case-body">
-        <p class="p-tight">商品の市場での手応えを確かめるため、クラウドファンディング施策用のKVを制作しました。</p>
-        <p class="p-tight">訴求の核にあった「5秒で収納」というコピーを軸に、先行撮影していた動画素材から5カットを選び、フィルム状の構成に展開。機能の流れを一目で追えるわかりやすさと、CIOらしいミニマルなトーンの両立を意識して設計しました。</p>
-        <p>Makuakeでは支援総額約4,000万円を記録し、その後Amazon用LPや店頭POPにも展開しました。</p>
+        <p>観葉植物のためのプランタースタンド「tomari.」の自主ブランド・商品開発プロジェクトです。安価なプランタースタンドや鉢台が多数流通する中で、価格競争ではなく、植物の「置き方」や「見え方」に価値を持たせることを起点に企画しました。</p>
+        <p>植物を床や棚にただ置くのではなく、暮らしの中で美しくとどまる場所をつくる。その考え方をもとに、丸い天板と三本脚を持つスツール型のプランタースタンドとして設計。ジョイントパーツを共通化し、脚の長さでサイズ展開できる構造にすることで、意匠だけでなく製造コストや販売展開も見据えたプロダクトとして構成しました。</p>
+        <p>ロゴシンボルは、漢字の「止」を抽象化し、枝・止まり木・三本脚の形状にも重なる記号として設計。包装を止めるシールにも「止」の文字を使用し、ブランド名の由来に気づく小さな体験を組み込みました。</p>
+        <p style="letter-spacing: 0.03em;">競合分析、ターゲット整理、コンセプト設計を行いながら、ロゴ、パッケージ、商品モックアップまで一貫して制作。事業化を前提に、商品構造・サイズ展開・販売導線まで検討し、ブランドの立ち上げプロセスを可視化しました。</p>
       </div>
       <dl class="case-meta">
-        <dt>Media</dt><dd>Makuake KV / Amazon LP / 店頭POP など</dd>
-        <dt>Role</dt><dd>AD・デザイン制作</dd>
-        <dt>Year</dt><dd>2024</dd>
-        <dt>Client</dt><dd>CIO</dd>
+        <dt>Media</dt><dd>ブランド構想 / プロダクトデザイン /<br>パッケージ設計</dd>
+        <dt>Role</dt><dd>コンセプト設計 / ロゴ設計 / 商品企画 /<br>ビジュアル制作</dd>
+        <dt>Year</dt><dd>2026〜</dd>
+        <dt>Client</dt><dd>自主企画</dd>
       </dl>
     </aside>
-    <div class="case-gallery">
-      <img src="makuake.png" alt="CIO Polaris CUBE Built in CABLE KV" class="gallery-85">
-      <img src="built-in.jpg" alt="CIO Polaris CUBE 機能訴求ビジュアル" class="gallery-80">
-      <img src="240201_youtube_Builtin.png" alt="CIO Polaris CUBE Built in CABLE 商品紹介" class="gallery-50">
-    </div>
-  </div>
-</section>
 
-<!-- ============================== -->
-<!-- 02 CIO POP-UP STORE            -->
-<!-- ============================== -->
-<section class="case-section" id="cio-popup">
-  <div class="case-grid">
-    <aside class="case-info">
-      <div class="case-number">02 CIO POP-UP STORE</div>
-      <h1 class="case-title">店舗オープンKV・告知展開 /<br>オープン当日は行列ができる盛況に</h1>
-      <div class="case-body">
-        <p>CIO初の実店舗オープンに伴い、告知用KVを社内コンペ形式で制作しました。</p>
-        <p class="p-tight">シルバーで統一された什器や、砂漠の中に宇宙船が存在するような非日常感をもつ空間コンセプトをもとに、店内そのものを宇宙船に見立てた世界観へ展開。実機を手に取って試せる店舗特性に合わせ、シンプルさの中に機械的でSF的なニュアンスを加えて設計しました。</p>
-        <p>ルクア館内でのポスターやサイネージ、特設サイトにも展開され、オープン当日は行列ができる盛況となりました。</p>
-      </div>
-      <dl class="case-meta">
-        <dt>Media</dt><dd>特設サイト / ポスター / サイネージ など</dd>
-        <dt>Role</dt><dd>AD・デザイン制作</dd>
-        <dt>Year</dt><dd>2025</dd>
-        <dt>Client</dt><dd>CIO</dd>
-      </dl>
-    </aside>
     <div class="case-gallery">
-      <img src="popup-store01.png" alt="CIO STORE OPEN メインKV" class="gallery-85">
-      <div class="gallery-row-2 gallery-85">
-        <img src="cio_LP01.jpg" alt="CIO STORE 特設サイト前半">
-        <img src="cio_LP02.jpg" alt="CIO STORE 特設サイト後半">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== -->
-<!-- 03 CIO 商品パッケージデザイン   -->
-<!-- ============================== -->
-<section class="case-section" id="cio-package">
-  <div class="case-grid">
-    <aside class="case-info">
-      <div class="case-number">03 CIO 商品パッケージデザイン</div>
-      <h1 class="case-title">桜テーマの限定モデルを、<br>店頭で映えるパッケージへ展開</h1>
-      <div class="case-body">
-        <p class="p-tight">インバウンド需要を見据えた限定モデルとして、桜をテーマにした商品パッケージを制作しました。</p>
-        <p class="p-tight">製品本体のプリント柄からパッケージまで一貫して展開し、海外の方にも日本らしさが直感的に伝わる見せ方を意識しました。パッケージには「桜」の漢字を大きく入れる指定があり、限定感と店頭での視認性を両立する構成にしました。</p>
-        <p>また、売場POPやEC商品画像にも展開しやすいよう、商品特徴と世界観が伝わるビジュアル設計を行いました。</p>
-      </div>
-      <dl class="case-meta">
-        <dt>Media</dt><dd>商品パッケージ / 店頭POP / EC商品画像</dd>
-        <dt>Role</dt><dd>AD・デザイン制作・入稿データ作成</dd>
-        <dt>Year</dt><dd>2024</dd>
-        <dt>Client</dt><dd>CIO</dd>
-      </dl>
-    </aside>
-    <div class="case-gallery">
-      <img src="PK00.png" alt="SAKURA Edition パッケージ展開図" class="gallery-50">
-      <img src="PK01.png" alt="Normal Package → SAKURA Edition Package" class="gallery-51">
-      <img src="PK02.jpg" alt="SMARTCOBY Pro SLIM SAKURA Edition EC商品画像" class="gallery-60">
-    </div>
-  </div>
-</section>
-
-<!-- ============================== -->
-<!-- 04 CIO 福袋2025 KV制作         -->
-<!-- ============================== -->
-<section class="case-section" id="cio-fukubukuro">
-  <div class="case-grid">
-    <aside class="case-info">
-      <div class="case-number">04 CIO 福袋2025 KV制作</div>
-      <h1 class="case-title fukubukuro-title">干支と水引をモチーフに、<br>CIOらしさを込めた<br>福袋キャンペーンKV</h1>
-      <div class="case-body">
-        <p class="p-tight">CIOの恒例企画である福袋2025のKVを制作。<br>2025年の干支である巳年に合わせ、福袋に含まれるUSBケーブルの「なめらかで絡まりにくい」特徴と、水引の要素を組み合わせて設計しました。</p>
-        <p class="p-tight">ケーブルだけでなく、モバイルバッテリーや充電器も取り入れ、福袋に含まれる製品群が伝わる構成にしました。</p>
-        <p>制作したKVは、メッセージカード、パッケージ、販促バナーにも展開し、購入ユーザーからもSNS上で好意的な反応がありました。</p>
-      </div>
-      <dl class="case-meta">
-        <dt>Media</dt><dd>福袋KV / メッセージカード / パッケージ /<br>販促バナー</dd>
-        <dt>Role</dt><dd>AD・デザイン制作</dd>
-        <dt>Year</dt><dd>2024</dd>
-        <dt>Client</dt><dd>CIO</dd>
-      </dl>
-    </aside>
-    <div class="case-gallery">
-      <img src="fukubukuro01.jpg" alt="CIO 福袋2025 KVロゴ 色版展開" class="gallery-50">
-      <img src="fukubukuro02.png" alt="CIO 福袋2025 パッケージ・袋実物" class="gallery-43">
-      <img src="fukubukuro03jpg.jpg" alt="CIO 福袋2025 メッセージカード" class="gallery-27">
-      <img src="fukubukuro04.png" alt="CIO 福袋2025 販促バナー" class="gallery-45">
+      <img src="tomari_02.jpg" alt="tomari. プランタースタンド 空間イメージ" class="gallery-centered">
+      <img src="tomari_03.png" alt="tomari. ロゴ 白・黒バージョン" class="gallery-centered">
+      <img src="tomari_04.jpg" alt="tomari. 梱包 止シール" class="gallery-centered">
+      <img src="tomari_05.jpg" alt="tomari. サイズ展開 S / M / L" class="gallery-centered">
     </div>
   </div>
 </section>
@@ -617,69 +470,6 @@
       document.body.style.overflow = '';
     });
   });
-
-  // ===== Case Study Crossfade =====
-  // When scrolling from one case to the next, fade out the current
-  // and fade in the next simultaneously instead of the "messy split" scroll.
-  const caseSections = Array.from(document.querySelectorAll('.case-section'));
-  let fadeTicking = false;
-
-  function updateCaseFade() {
-    if (window.innerWidth <= 900) {
-      caseSections.forEach(s => { s.style.opacity = ''; });
-      return;
-    }
-
-    const vh = window.innerHeight;
-    const fadeTop = vh * 0.55;
-    const fadeBottom = vh * 0.15;
-
-    // まず全セクションを1にリセット
-    caseSections.forEach(s => { s.style.opacity = '1'; });
-
-    // アクティブなトランジションペアを探して処理
-    for (let i = 0; i < caseSections.length - 1; i++) {
-      const current = caseSections[i];
-      const next = caseSections[i + 1];
-      const bottom = current.getBoundingClientRect().bottom;
-
-      if (bottom >= fadeTop) {
-        // currentがまだ画面内 → next以降を全部隠す
-        for (let j = i + 1; j < caseSections.length; j++) {
-          caseSections[j].style.opacity = '0';
-        }
-        break;
-      } else if (bottom <= fadeBottom) {
-        // currentはフェードアウト完了 → 次のペアへ
-        current.style.opacity = '0';
-        continue;
-      } else {
-        // フェードゾーン内 → このペアだけ処理して終了
-        const progress = (fadeTop - bottom) / (fadeTop - fadeBottom);
-        current.style.opacity = String(1 - progress);
-        next.style.opacity = String(progress);
-        // next以降を隠す
-        for (let j = i + 2; j < caseSections.length; j++) {
-          caseSections[j].style.opacity = '0';
-        }
-        break;
-      }
-    }
-  }
-
-  function onScrollFade() {
-    if (!fadeTicking) {
-      requestAnimationFrame(() => {
-        updateCaseFade();
-        fadeTicking = false;
-      });
-      fadeTicking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScrollFade, { passive: true });
-  window.addEventListener('resize', updateCaseFade);
-  updateCaseFade();
 </script>
 </body>
 </html>
