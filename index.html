@@ -415,6 +415,8 @@
     margin-bottom: 4.5rem;
   }
 
+  .sp-br { display: none; }
+
   .works-grid {
     display: grid;
     grid-template-columns: 490px 490px;
@@ -773,7 +775,8 @@
     footer { border-top: 1px solid rgba(255,255,255,0.25); }
 
     #works h2 { font-size: 1.32rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .works-intro { font-size: 0.8rem; margin-bottom: 2rem; }
+    .works-intro { font-size: 0.8rem; margin-bottom: 2rem; letter-spacing: -0.03em; }
+    .sp-br { display: block; }
     .works-grid { grid-template-columns: 1fr; gap: 2rem; }
     .work-category { font-size: 0.5rem; }
     .work-title { font-size: 0.85rem; }
@@ -888,7 +891,7 @@
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-scroll-hint">
-    <img src="SCROLL.png" alt="SCROLL">
+    <img src="SCROLL.png" alt="SCROLL" loading="lazy">
   </div>
 </section>
 
@@ -975,9 +978,9 @@
       </div>
 
       <div class="position-right">
-        <a class="freelance-eyecatch reveal" href="position_works.html">
+        <a class="freelance-eyecatch reveal" href="position_works_v1.html">
           <div class="eyecatch-thumb">
-            <img src="freelance_works.png" alt="モチハモチヤ 制作実績">
+            <img src="freelance_works.png" alt="モチハモチヤ 制作実績" loading="lazy">
           </div>
           <div class="eyecatch-category">Branding / Graphic</div>
           <div class="eyecatch-title">モチハモチヤ 制作実績</div>
@@ -994,58 +997,76 @@
   <div class="reveal">
     <div class="section-label">Selected Works</div>
     <h2>実績紹介</h2>
-    <p class="works-intro">売上貢献、継続採用、提案力、情報設計。<br>27年の実務経験を背景に、強みが伝わる実績を掲載しています。</p>
+    <p class="works-intro">売上貢献、継続採用、提案力、情報設計。<br>27年の実務経験を背景に、<br class="sp-br">強みが伝わる実績を掲載しています。</p>
   </div>
   
   <div class="works-grid">
-    <a class="work-card reveal" href="work_cio_v10.html">
+    <a class="work-card reveal" href="work_cio_v11.html">
       <div class="work-thumb">
-        <img src="work_cio.png" alt="CIO Makuake・POP-UP STORE施策">
+        <img src="work_cio.png" alt="CIO Makuake・POP-UP STORE施策" loading="lazy">
       </div>
       <div class="work-category">Crowdfunding / Retail</div>
       <div class="work-title">CIO Makuake・POP-UP STORE施策</div>
-      <div class="work-result">AD・KV制作 / 支援総額 4,000万円超</div>
+      <div class="work-result">AD・KV制作 / 支援総額4,000万円超</div>
     </a>
-    
+
     <a class="work-card reveal" href="work_ikumen_v22.html">
       <div class="work-thumb">
-        <img src="work_ikumen.png" alt="山口県イクメン冊子">
+        <img src="work_ikumen.png" alt="山口県イクメン冊子" loading="lazy">
       </div>
-      <div class="work-category">Public / Editorial</div>
+      <div class="work-category">Editorial / Booklet</div>
       <div class="work-title">山口県イクメン冊子</div>
-      <div class="work-result">コンペ採用 / 書籍掲載</div>
+      <div class="work-result">行政コンペ採用 / デザイン書籍掲載</div>
     </a>
-    
-    <a class="work-card reveal" href="work_oasis_v26.html">
+
+    <a class="work-card reveal" href="work_dm_v2.html">
       <div class="work-thumb">
-        <img src="work_oasis.png" alt="OASIS統合プロモーション">
+        <img src="work_dm.png" alt="宇部蒲鉾 季節DM" loading="lazy">
       </div>
-      <div class="work-category">Integrated Promotion</div>
-      <div class="work-title">OASIS統合プロモーション</div>
-      <div class="work-result">統合プロモーション / 年間1億円規模受注</div>
+      <div class="work-category">Food / Direct Mail</div>
+      <div class="work-title">宇部蒲鉾 季節DM</div>
+      <div class="work-result">撮影ディレクション / 複数シーズン制作</div>
     </a>
-    
+
     <a class="work-card reveal" href="work_toushin_v11.html">
       <div class="work-thumb">
-        <img src="work_calendar.png" alt="東山口信用金庫カレンダー">
+        <img src="work_calendar.png" alt="東山口信用金庫カレンダー" loading="lazy">
       </div>
-      <div class="work-category">Continuity / Print</div>
+      <div class="work-category">3DCG / Calendar</div>
       <div class="work-title">東山口信用金庫カレンダー</div>
-      <div class="work-result">複数案提案 / 継続制作参加</div>
+      <div class="work-result">3Dビジュアル制作 / 複数案提案</div>
     </a>
-    
-    <a class="work-card reveal" href="work_palsystem_v33.html">
+
+    <a class="work-card reveal" href="work_drivefair.html">
       <div class="work-thumb">
-        <img src="work_palsystem.png" alt="パルシステム 立体DM">
+        <img src="work_drivefair.png" alt="Drive Fair LP" loading="lazy">
+      </div>
+      <div class="work-category">Campaign / Landing Page</div>
+      <div class="work-title">Drive Fair LP</div>
+      <div class="work-result">構成・UI設計 / DM展開</div>
+    </a>
+
+    <a class="work-card reveal" href="work_oasis_v27.html">
+      <div class="work-thumb">
+        <img src="work_oasis.png" alt="OASIS統合プロモーション" loading="lazy">
+      </div>
+      <div class="work-category">Branding / Promotion</div>
+      <div class="work-title">OASIS統合プロモーション</div>
+      <div class="work-result">専属AD / 年間1億円規模受注</div>
+    </a>
+
+    <a class="work-card reveal" href="work_palsystem_v34.html">
+      <div class="work-thumb">
+        <img src="work_palsystem.png" alt="パルシステム 立体DM" loading="lazy">
       </div>
       <div class="work-category">Structure / Direct Mail</div>
       <div class="work-title">パルシステム 立体DM</div>
-      <div class="work-result">構造デザイン提案 / クライアントから高評価</div>
+      <div class="work-result">構造DM提案 / 体験設計</div>
     </a>
 
-    <a class="work-card reveal" href="work_tomari.html">
+    <a class="work-card reveal" href="work_tomari_v2.html">
       <div class="work-thumb">
-        <img src="tomari_01.jpg" alt="tomari. プランタースタンド構想">
+        <img src="work_tomari.png" alt="tomari. プランタースタンド構想" loading="lazy">
       </div>
       <div class="work-category">Brand Concept / Product Design</div>
       <div class="work-title">tomari. プランタースタンド構想</div>
