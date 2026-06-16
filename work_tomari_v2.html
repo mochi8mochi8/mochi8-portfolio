@@ -327,6 +327,7 @@
     .case-number { font-size: 0.72rem; padding-bottom: 0.8rem; margin-bottom: 1rem; }
     .case-title { font-size: 0.92rem; letter-spacing: 0.04em; margin-bottom: 1.2rem; }
     .case-body p { font-size: 0.78rem; line-height: 1.9; }
+    .case-body p:first-child { letter-spacing: -0.03em; }
     .case-meta {
       margin-top: 1.6rem;
       padding-top: 1.4rem;
@@ -361,6 +362,52 @@
       margin: 0 auto;
     }
   }
+  /* ── LIGHTBOX ── */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.88);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    cursor: default;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.8rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+  }
+  .lightbox-close::before,
+  .lightbox-close::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 1.5px;
+    background: rgba(255,255,255,0.75);
+    transition: background 0.2s;
+  }
+  .lightbox-close::before { transform: rotate(45deg); }
+  .lightbox-close::after  { transform: rotate(-45deg); }
+  .lightbox-close:hover::before,
+  .lightbox-close:hover::after { background: #fff; }
+  .case-gallery img { cursor: zoom-in; }
 </style>
 </head>
 <body>
@@ -473,6 +520,37 @@
       mobileMenu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     });
+  });
+
+  // ===== ライトボックス =====
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  const lbImg = document.createElement('img');
+  const closeBtn = document.createElement('div');
+  closeBtn.className = 'lightbox-close';
+  overlay.appendChild(lbImg);
+  overlay.appendChild(closeBtn);
+  document.body.appendChild(overlay);
+
+  function closeLightbox() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.case-gallery img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  overlay.addEventListener('click', closeLightbox);
+  closeBtn.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
   });
 </script>
 </body>
